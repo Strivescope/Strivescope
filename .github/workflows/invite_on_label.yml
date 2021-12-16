@@ -1,0 +1,18 @@
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  invite_on_label:
+    runs-on: ubuntu-latest
+    steps:
+    - name: invite-on-label
+      uses: vj-abigo/invite-on-label@v1.2
+      with:
+        organization: Strivescope
+        label: joining to the organization
+        repo-token: ${{secrets.REPO_TOKEN}}
+        comment: Invitation sent. Welcome to Strivescope!
+      env:
+        INVITE_TOKEN: ${{ secrets.INVITE_TOKEN }}
+      
